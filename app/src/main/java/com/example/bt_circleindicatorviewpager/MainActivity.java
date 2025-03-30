@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         circleIndicator.setViewPager(viewPager);
 
-        GetMessages(); // Gọi API để lấy dữ liệu
+        getImages(); // Gọi API để lấy dữ liệu
     }
 
     @Override
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         handler.removeCallbacks(runnable);
     }
 
-    private void GetMessages() {
+    private void getImages() {
         apiService = RetrofitClient.getRetrofit().create(APIService.class);
         Call<MessageModel> call = apiService.LoadImageSlider(1);
         call.enqueue(new Callback<MessageModel>() {
