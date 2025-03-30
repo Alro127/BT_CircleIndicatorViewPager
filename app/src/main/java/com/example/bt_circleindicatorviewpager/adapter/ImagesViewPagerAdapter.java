@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.bumptech.glide.Glide;
 import com.example.bt_circleindicatorviewpager.R;
 import com.example.bt_circleindicatorviewpager.model.ImagesSlider;
 
@@ -25,7 +26,7 @@ public class ImagesViewPagerAdapter extends PagerAdapter {
         View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_images, container, false);
         ImageView imageView = view.findViewById(R.id.imgView);
         ImagesSlider images = imagesList.get(position);
-        imageView.setImageResource(images.getId());
+        Glide.with(container.getContext()).load(images.getAvatar()).into(imageView);
 
         container.addView(view);
         return view;
